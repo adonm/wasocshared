@@ -16,4 +16,4 @@ CISA has released multiple advisories for Industrial Control Systems (ICS) relat
 
 The WASOC recommends administrators review relevant advisories and apply the recommended actions to all affected devices.
 
-- CISA: https://www.cisa.gov/news-events/ics-advisories/icsa-26-106-03
+- CISA: <https://www.cisa.gov/news-events/ics-advisories/icsa-26-106-03>
