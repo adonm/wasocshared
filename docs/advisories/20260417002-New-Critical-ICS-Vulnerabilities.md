@@ -8,10 +8,9 @@ CISA has released multiple advisories for Industrial Control Systems (ICS) relat
 
 ### Critical Severity
 
-| Vendor | CVE | CVSS | Severity |
-| ------ | --- | ---- | -------- |
-|    Anviz CX7 Firmware    |  [CVE-2026-35546](https://www.cve.org/CVERecord?id=CVE-2026-35546)   |   9.8   |    **Critical**      |
-
+| Vendor             | CVE                                                               | CVSS | Severity     |
+| ------------------ | ----------------------------------------------------------------- | ---- | ------------ |
+| Anviz CX7 Firmware | [CVE-2026-35546](https://www.cve.org/CVERecord?id=CVE-2026-35546) | 9.8  | **Critical** |
 
 ## Recommendation
 
