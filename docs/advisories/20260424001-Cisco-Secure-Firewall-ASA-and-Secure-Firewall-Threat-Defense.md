@@ -6,7 +6,7 @@ The WASOC has been made aware of new information on a previously unknown persist
 
 CISA and NCSC have identified new malware deployed as part of the historical exploitation of [CVE-2025-20333](https://www.cve.org/CVERecord?id=CVE-2025-20333) and [CVE-2025-20362](https://www.cve.org/CVERecord?id=CVE-2025-20362), affecting devices running Cisco Secure ASA Software or Cisco Secure FTD Software.
 
-Previous WASOC Advisory: https://soc.cyber.wa.gov.au/advisories/20250926001-Cisco-ASA-Active-Exploitation/
+Previous WASOC Advisory: <https://soc.cyber.wa.gov.au/advisories/20250926001-Cisco-ASA-Active-Exploitation/>
 
 ## What has been observed?
 
@@ -21,4 +21,4 @@ The WASOC recommends administrators apply the solutions as per vendor instructio
 ## Additional References
 
 - CISA: <https://www.cisa.gov/news-events/analysis-reports/ar26-113a>
-- WASOC :<https://soc.cyber.wa.gov.au/advisories/20250926001-Cisco-ASA-Active-Exploitation/>
+- WASOC: <https://soc.cyber.wa.gov.au/advisories/20250926001-Cisco-ASA-Active-Exploitation/>
