@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
           egress-policy: audit
 
@@ -19,13 +19,13 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5.5.0
-        with:
-          python-version: '3.13'
-          cache: 'pip' # caching pip dependencies
-      - name: install mkdocs
-        run: pip install -r requirements.txt
-      - name: run mdformat
-        run: mdformat --no-validate . && mdformat .
+      - name: Setup mise
+        uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+      - name: Install dependencies
+        run: mise run sync
+      - name: check markdown formatting
+        run: mise run format-check
       - name: build site
-        run:  python -m mkdocs build --strict
+        run: mise run build
+      - name: build rss feeds
+        run: mise run rss
