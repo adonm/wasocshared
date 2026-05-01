@@ -58,7 +58,7 @@ Learn how to create documentation in markdown, keep track of your work in git, c
 
 #### 3.2.2. Creating and securing public cloud workloads
 
-Please work through the [Azure VM](azure-basics.md) excercises to familiarise yourself with the tools that would typically be used to build and run a secure cloud workload as a VM exposed to the internet.
+Please work through the [Azure VM](azure-basics.md) exercises to familiarise yourself with the tools that would typically be used to build and run a secure cloud workload as a VM exposed to the internet.
 
 #### 3.2.3. Security Investigations with Python Notebooks
 
@@ -109,9 +109,9 @@ The below two resources are a good starting point for understanding KQL in addit
 
 ![Azure service overview](../images/azure.png)
 
-#### 3.5.2 Addtional Microsoft Security and Administration Training
+#### 3.5.2 Additional Microsoft Security and Administration Training
 
-The below resources are addtional training material for better understading the Microsoft Sentinel and M365 Security tools. Microsoft has developed the [Microsoft Security Academy](https://microsoft.github.io/PartnerResources/skilling/microsoft-security-academy), the following are high priority for SOC Analysts:
+The below resources are additional training material for better understanding the Microsoft Sentinel and M365 Security tools. Microsoft has developed the [Microsoft Security Academy](https://microsoft.github.io/PartnerResources/skilling/microsoft-security-academy), the following are high priority for SOC Analysts:
 
 1. [Become a Microsoft Sentinel Ninja: The complete level 400](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310) Training
 1. [Become a Microsoft Unified SOC Platform Ninja](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-unified-soc-platform-ninja/ba-p/4014565) Training

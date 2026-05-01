@@ -1,26 +1,22 @@
-"""Advisory parsing and SendGrid draft creation."""
+"""SendGrid advisory draft creation for WA SOC advisories."""
 
 from __future__ import annotations
 
+import argparse
 import datetime as dt
 import json
 import os
 import re
+import sys
 from dataclasses import dataclass
 from pathlib import Path
-from string import Template
 
-from markdown import markdown
 from sendgrid import SendGridAPIClient
 
-from .common import (
-    ADVISORY_BASE_URL,
-    ADVISORY_DIR,
-    EMAIL_TEMPLATE_PATH,
-    document_title,
-    titled_section,
-)
-
+SITE_URL = "https://soc.cyber.wa.gov.au"
+ADVISORY_DIR = Path("docs/advisories")
+ADVISORY_BASE_URL = f"{SITE_URL}/advisories/"
+HUGO_EMAIL_ROOT = Path("site")
 SENDGRID_LIST_ID = "fdeb76e9-0895-4b5e-b929-4022f71cb16d"
 SENDGRID_SENDER_ID = 5228194
 TITLE_MAX_LENGTH = 100
@@ -31,12 +27,19 @@ AUTO_LOOKBACK_DAYS = 5
 class Advisory:
     uid: str
     title: str
-    overview: str
     path: Path
 
     @property
     def url(self) -> str:
         return f"{ADVISORY_BASE_URL}{self.path.stem}/"
+
+
+def document_title(markdown_text: str) -> str | None:
+    """Return the first level-1 markdown heading from text."""
+    for line in markdown_text.lstrip("\ufeff").splitlines():
+        if line.startswith("# "):
+            return line.lstrip("#").strip()
+    return None
 
 
 def sendgrid_client() -> SendGridAPIClient:
@@ -72,28 +75,29 @@ def parse_advisory(path: Path) -> Advisory:
     """Return advisory metadata from markdown content."""
     markdown_text = path.read_text(encoding="utf-8-sig")
     title = document_title(markdown_text)
-    overview = titled_section(markdown_text, "overview")
-
     if not title:
         raise ValueError("Advisory title not found")
     title = re.sub(r"\s+-\s+\d{11}$", "", title).strip()
-    if not overview:
-        raise ValueError(f"Overview section not found for advisory '{title}'")
     if len(title) >= TITLE_MAX_LENGTH:
         raise ValueError(
             f"Advisory '{title}' title length is {len(title)} characters; "
             f"it must be less than {TITLE_MAX_LENGTH} characters"
         )
-    return Advisory(advisory_uid_from_name(path.name), title, overview, path)
+    return Advisory(advisory_uid_from_name(path.name), title, path)
+
+
+def rendered_email_path(advisory: Advisory) -> Path:
+    return HUGO_EMAIL_ROOT / "advisories" / advisory.path.stem / "email.html"
 
 
 def render_email(advisory: Advisory) -> str:
-    return Template(EMAIL_TEMPLATE_PATH.read_text(encoding="utf-8")).substitute(
-        title=advisory.title,
-        overview=markdown(advisory.overview),
-        url=advisory.url,
-        uid=advisory.uid,
-    )
+    path = rendered_email_path(advisory)
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"Rendered Hugo email output not found: {path}. "
+            "Run `hugo --gc --destination site` first."
+        )
+    return path.read_text(encoding="utf-8")
 
 
 def email_lookup(client: SendGridAPIClient, uid: str) -> tuple[bool, str, str | None]:
@@ -192,3 +196,72 @@ def recent_advisory_paths(days: int = AUTO_LOOKBACK_DAYS) -> list[Path]:
         for path in sorted(ADVISORY_DIR.glob("*.md"), key=lambda item: item.name)
         if path.name[:8] in lookback_dates
     ]
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument(
+        "--auto", "-a", action="store_true", help="create drafts for recent advisories"
+    )
+    mode.add_argument(
+        "--bulk",
+        "-b",
+        nargs="?",
+        const=0,
+        type=int,
+        metavar="COUNT",
+        help="create drafts for the latest COUNT advisories",
+    )
+    mode.add_argument(
+        "source", nargs="?", help="SOC advisory URL or advisory markdown file"
+    )
+    parser.add_argument(
+        "--action",
+        "-x",
+        choices=("new", "update", "delete"),
+        default="new",
+        help="operation for a manual source (default: new)",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(sys.argv[1:] if argv is None else argv)
+
+    try:
+        client = sendgrid_client()
+        if args.auto:
+            paths = recent_advisory_paths()
+            if not paths:
+                print(
+                    "NOTE: No recent advisories found for automatic "
+                    "SendGrid draft creation"
+                )
+            send_campaign(client, paths)
+            return 0
+
+        if args.bulk is not None:
+            count = args.bulk or int(
+                input(
+                    "To bulk create SendGrid advisories, enter the "
+                    "number of latest advisories: "
+                )
+            )
+            send_campaign(client, latest_advisory_paths(count))
+            return 0
+
+        paths = paths_from_source(args.source)
+        uid = paths[0].name.split("-", 1)[0]
+        if args.action in {"delete", "update"}:
+            email_delete(client, uid)
+        if args.action in {"new", "update"}:
+            send_campaign(client, paths)
+        return 0
+    except (FileNotFoundError, ValueError) as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

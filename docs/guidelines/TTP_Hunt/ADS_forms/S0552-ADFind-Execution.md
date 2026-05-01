@@ -30,7 +30,7 @@ https://thedfirreport.com/2021/01/11/trickbot-still-alive-and-well <br>
 
 #### ATT&CK TACTICS
 
-{{mitre("S0552")}}
+{{< mitre "S0552" >}}
 
 ```
 - attack.discovery

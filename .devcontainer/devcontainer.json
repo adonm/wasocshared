@@ -2,14 +2,14 @@
 	"image": "mcr.microsoft.com/devcontainers/universal:linux",
 	"features": {
 	  "ghcr.io/devcontainers/features/python:1": { 
-		"version": "3.11"
+		"version": "3.13"
 	  }
 	},
 	"onCreateCommand": "mise trust && mise run sync",
-	"forwardPorts": [8000],
+	"forwardPorts": [1313],
 	"portsAttributes": {
-		"8000": {
-			"label": "mkdocs serve"
+		"1313": {
+			"label": "hugo server"
 		}
 	}
 }

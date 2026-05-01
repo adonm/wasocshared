@@ -15,7 +15,7 @@ https://github.com/xaitax/CVE-2024-21413-Microsoft-Outlook-Remote-Code-Execution
 
 #### ATT&CK TACTICS
 
-{{mitre("T1204")}}
+{{< mitre "T1204" >}}
 
 Data Source(s): [Network Traffic](https://attack.mitre.org/datasources/DS0029/)
 

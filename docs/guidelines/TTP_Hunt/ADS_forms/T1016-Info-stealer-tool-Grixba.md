@@ -21,7 +21,7 @@ https://www.bleepingcomputer.com/news/security/play-ransomware-gang-uses-custom-
 
 #### ATT&CK TACTICS
 
-{{mitre("T1016")}}
+{{< mitre "T1016" >}}
 
 Data Source(s): [Module](https://attack.mitre.org/datasources/DS0011/)
 

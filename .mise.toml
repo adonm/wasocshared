@@ -1,30 +1,48 @@
 [tools]
 python = "3.13"
 uv = "0.11.8"
+hugo = "0.161.1"
+lychee = "0.24.1"
+rumdl = "0.1.86"
+typos = "1.46.0"
+vale = "3.14.1"
 
 [tasks.sync]
 description = "Install Python dependencies with uv"
 run = "uv sync --frozen"
 
-[tasks.format]
-description = "Format markdown documents"
-run = "uv run mdformat --exclude '.venv/**' --exclude '.pytest_cache/**' ."
-
-[tasks.format-check]
-description = "Check markdown formatting"
-run = "uv run mdformat --check --exclude '.venv/**' --exclude '.pytest_cache/**' ."
-
 [tasks.build]
-description = "Build the MkDocs site"
-run = "uv run python -m mkdocs build --strict"
+description = "Build the Hugo site"
+run = "hugo --gc --destination site"
 
-[tasks.rss]
-description = "Generate RSS and Atom feeds"
-run = "uv run python -m wasoc.rss"
+[tasks.build-email]
+description = "Build Hugo site plus SendGrid email HTML outputs"
+run = "hugo --gc --destination site --config hugo.toml,hugo.email.toml"
+
+[tasks.serve]
+description = "Serve the Hugo site locally"
+run = "hugo server --bind 0.0.0.0 --baseURL http://localhost:1313/ --buildDrafts"
 
 [tasks.lint]
-description = "Lint Python and TOML"
-run = "uv run ruff check . && uv run taplo check pyproject.toml .mise.toml"
+description = "Lint Python, TOML, and YAML-adjacent configs"
+run = "uv run ruff check . && uv run taplo check pyproject.toml .mise.toml hugo.toml hugo.email.toml .rumdl.toml .lychee.toml _typos.toml"
+
+[tasks.markdown-lint]
+description = "Lint Markdown content with rumdl"
+run = "rumdl check docs"
+
+[tasks.links]
+description = "Check rendered-site links offline with Lychee"
+depends = ["build"]
+run = "lychee --offline --root-dir $PWD/site --config .lychee.toml --no-progress 'site/**/*.html'"
+
+[tasks.spell]
+description = "Check spelling with typos"
+run = "typos ."
+
+[tasks.prose]
+description = "Check low-noise prose style with Vale"
+run = "vale --no-global docs"
 
 [tasks.unit]
 description = "Run unit tests"
@@ -32,4 +50,4 @@ run = "uv run python -m pytest"
 
 [tasks.test]
 description = "Run repository checks"
-depends = ["format-check", "lint", "unit", "build", "rss"]
+depends = ["lint", "markdown-lint", "spell", "prose", "unit", "build", "links"]

@@ -20,7 +20,7 @@ https://github.com/SigmaHQ/sigma/blob/49adcf9a00247ed6c3daacba03b589470f6716d0/r
 
 #### ATT&CK TACTICS
 
-{{ mitre("T1090")}}
+{{< mitre "T1090" >}}
 
 Data Source(s): [Command](https://attack.mitre.org/datasources/DS0017), [Process](https://attack.mitre.org/datasources/DS0009/)
 

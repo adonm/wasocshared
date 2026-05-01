@@ -1,0 +1,14 @@
+{{ $type := .Get "type" | default "note" }}
+{{ $title := .Get "title" | default (humanize $type) }}
+{{ $open := eq (.Get "open" | default "true") "true" }}
+{{ if $open }}
+<div class="admonition {{ $type }}">
+  <p class="admonition-title">{{ $title }}</p>
+  {{ .Inner | markdownify }}
+</div>
+{{ else }}
+<details class="admonition {{ $type }}">
+  <summary>{{ $title }}</summary>
+  {{ .Inner | markdownify }}
+</details>
+{{ end }}

@@ -1,0 +1,21 @@
+ACSC
+AMSI
+ASD
+ATT&CK
+Azure
+CISA
+DGov
+Essential Eight
+FortiOS
+FortiProxy
+FortiSwitchManager
+Hugo
+KQL
+MITRE
+Quishing
+Sentinel
+SentinelOne
+TLP:CLEAR
+WA SOC
+WASOC
+XDR

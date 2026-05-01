@@ -1,0 +1,33 @@
+{{- $cutoff := now.AddDate 0 0 -180 -}}
+{{- $pages := slice -}}
+{{- range site.RegularPages.ByLastmod.Reverse -}}
+  {{- $path := "" -}}
+  {{- with .File }}{{ $path = .Path }}{{ end -}}
+  {{- $excluded := or (strings.Contains $path "ADS_forms/") (strings.Contains $path "markdown-templates/") -}}
+  {{- if and (not $excluded) (ge .Lastmod.Unix $cutoff.Unix) -}}
+    {{- $pages = $pages | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $updated := now -}}
+{{- with index $pages 0 }}{{ $updated = .Lastmod }}{{ end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WA SOC Alerts &amp; Updates</title>
+    <link>{{ site.BaseURL }}</link>
+    <description>{{ printf "This site contains technical information to support WA Government Cyber Security activities. Please propose updates directly via the edit link on each page or email %s with any feedback." site.Params.contactEmail | htmlEscape }}</description>
+    <language>en-AU</language>
+    <lastBuildDate>{{ $updated.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    <atom:link href="{{ "rss.xml" | absURL }}" rel="self" type="application/rss+xml" />
+    {{ range $pages }}
+    <item>
+      <title>{{ partial "page-title.html" . | plainify | htmlEscape }}</title>
+      <link>{{ .Permalink }}</link>
+      <guid>{{ .Permalink }}</guid>
+      <pubDate>{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <description>{{ .Summary | plainify | htmlEscape }}</description>
+      {{ with .Section }}<category>{{ . | htmlEscape }}</category>{{ end }}
+    </item>
+    {{ end }}
+  </channel>
+</rss>

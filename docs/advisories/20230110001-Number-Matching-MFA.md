@@ -21,7 +21,7 @@ if an organization that uses mobile push-notification-based MFA is unable to imp
 
 Number matching is a setting that forces the user to enter numbers from the identity platform into their app to approve the authentication request. Figures 3 and 4 provide the user's view of an identity platform login screen that uses number matching.
 
-![](../images/2023-01-10_11-33%20MFA.png)
+![Microsoft Authenticator number matching prompt](../images/2023-01-10_11-33%20MFA.png)
 
 The number matching requirement mitigates MFA fatigue by:
 

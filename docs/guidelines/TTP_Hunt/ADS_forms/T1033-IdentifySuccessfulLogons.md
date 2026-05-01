@@ -19,7 +19,7 @@ https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us
 
 #### ATT&CK TACTICS
 
-{{ mitre("T1033") }}
+{{< mitre "T1033" >}}
 
 Data source - [Command](https://attack.mitre.org/datasources/DS0017)
 

@@ -1,0 +1,9 @@
+<nav class="sidebar-nav" aria-label="Documentation navigation">
+  <p class="sidebar-title">Navigation</p>
+  {{ $current := . }}
+  {{ range site.Menus.main }}
+    {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+    {{ with .Page }}{{ if eq .RelPermalink $current.RelPermalink }}{{ $active = true }}{{ end }}{{ end }}
+    <a class="sidebar-link{{ if $active }} is-active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+  {{ end }}
+</nav>

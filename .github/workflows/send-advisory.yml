@@ -29,7 +29,10 @@ jobs:
       - name: Install dependencies
         run: mise run sync
 
+      - name: Build Hugo email HTML
+        run: mise run build-email
+
       - name: Send advisories
         env:
           SENDGRID_API: ${{ secrets.SENDGRID_API }}
-        run: uv run python -m wasoc.send_advisory --auto
+        run: uv run python -m wasoc.advisory --auto

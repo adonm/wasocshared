@@ -1,0 +1,33 @@
+# Extra Hugo config used only by SendGrid advisory automation.
+# Advisory pages opt into EMAIL output via docs/advisories/_index.md cascade.
+# Normal Pages builds do not publish email.html outputs.
+
+[outputs]
+home = ["HTML", "JSON", "RSS", "ATOM"]
+page = ["HTML", "EMAIL"]
+
+
+[[module.mounts]]
+source = "docs"
+target = "content"
+files = ["advisories/**"]
+
+[[module.mounts]]
+source = "docs/images"
+target = "static/images"
+
+[[module.mounts]]
+source = "docs/pdfs"
+target = "static/pdfs"
+
+[[module.mounts]]
+source = "docs/stylesheets"
+target = "static/stylesheets"
+
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+
+[[module.mounts]]
+source = "static"
+target = "static"

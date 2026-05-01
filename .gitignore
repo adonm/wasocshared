@@ -8,3 +8,5 @@ site
 .ruff_cache
 
 .pytest_cache
+.hugo_build.lock
+.lycheecache

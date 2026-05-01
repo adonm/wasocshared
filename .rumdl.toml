@@ -1,0 +1,20 @@
+# Low-noise Markdown checks for Hugo-authored content.
+# Keep this focused; Hugo build and link check catch rendered-site issues.
+[global]
+flavor = "standard"
+enable = [
+  "MD009", # trailing spaces
+  "MD010", # hard tabs
+  "MD012", # multiple consecutive blank lines
+  "MD018", # missing space after heading marker
+  "MD019", # multiple spaces after heading marker
+  "MD020", # missing spaces inside closed heading
+  "MD021", # multiple spaces inside closed heading
+  "MD023", # headings must start at beginning of line
+  "MD042", # empty links
+  "MD045", # image alt text
+  "MD051", # link fragments should be valid
+  "MD052", # reference links/images should be defined
+  "MD053", # link/image definitions should be used
+  "MD057", # relative links should point to existing files
+]

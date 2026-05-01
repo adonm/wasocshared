@@ -1,0 +1,35 @@
+{{- $cutoff := now.AddDate 0 0 -180 -}}
+{{- $pages := slice -}}
+{{- range site.RegularPages.ByLastmod.Reverse -}}
+  {{- $path := "" -}}
+  {{- with .File }}{{ $path = .Path }}{{ end -}}
+  {{- $excluded := or (strings.Contains $path "ADS_forms/") (strings.Contains $path "markdown-templates/") -}}
+  {{- if and (not $excluded) (ge .Lastmod.Unix $cutoff.Unix) -}}
+    {{- $pages = $pages | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $updated := now -}}
+{{- with index $pages 0 }}{{ $updated = .Lastmod }}{{ end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>WA SOC Alerts &amp; Updates</title>
+  <id>{{ site.BaseURL }}</id>
+  <link href="{{ site.BaseURL }}" rel="alternate" />
+  <link href="{{ "atom.xml" | absURL }}" rel="self" type="application/atom+xml" />
+  <updated>{{ $updated.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+  <author>
+    <name>WA SOC</name>
+    <email>{{ site.Params.contactEmail | htmlEscape }}</email>
+  </author>
+  <subtitle>{{ printf "This site contains technical information to support WA Government Cyber Security activities. Please propose updates directly via the edit link on each page or email %s with any feedback." site.Params.contactEmail | htmlEscape }}</subtitle>
+  {{ range $pages }}
+  <entry>
+    <title>{{ partial "page-title.html" . | plainify | htmlEscape }}</title>
+    <id>{{ .Permalink }}</id>
+    <link href="{{ .Permalink }}" rel="alternate" />
+    <updated>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+    <summary>{{ .Summary | plainify | htmlEscape }}</summary>
+    {{ with .Section }}<category term="{{ . | htmlEscape }}" />{{ end }}
+  </entry>
+  {{ end }}
+</feed>

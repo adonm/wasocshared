@@ -1,0 +1,8 @@
+{{- $path := .Get "path" -}}
+{{- with site.GetPage $path -}}
+  {{- .Content -}}
+{{- else -}}
+  {{- if not (strings.HasPrefix $path "guidelines/") -}}
+    {{- errorf "include-page shortcode could not find %q" $path -}}
+  {{- end -}}
+{{- end -}}

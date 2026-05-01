@@ -19,10 +19,11 @@ For larger deployments across an enterprise using [Azure server management serv
 - [Configure the service for a subscription - Cloud Adoption Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/manage/azure-server-management/onboard-at-scale)
 - [About Azure Automanage Machine Best Practices | Microsoft Learn](https://learn.microsoft.com/en-us/azure/automanage/overview-about)
 
-!!! note "Vulnerability Management Business Context"
+{{% admonition type="note" title="Vulnerability Management Business Context" open=true %}}
 
-    Ensuring that [vulnerability management](../baselines/vulnerability-management.md) activities also ensure the appropriate business context is applied (e.g. using [Tags (Tenable Vulnerability Management)](https://docs.tenable.com/vulnerability-management/Content/Settings/Tagging/Tags.htm)) should effectively prioritise patch activities.
+Ensuring that [vulnerability management](../baselines/vulnerability-management.md) activities also ensure the appropriate business context is applied (e.g. using [Tags (Tenable Vulnerability Management)](https://docs.tenable.com/vulnerability-management/Content/Settings/Tagging/Tags.htm)) should effectively prioritise patch activities.
 
+{{% /admonition %}}
 ### Example patching approach
 
 A checklist based on ACSC's [Assessing Security Vulnerabilities and Applying Patches](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-administration/assessing-security-vulnerabilities-and-applying-patches) resource is below:
@@ -40,6 +41,6 @@ A checklist based on ACSC's [Assessing Security Vulnerabilities and Applying Pat
     - [ ] Isolate these systems individually in their own [network segments](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/network-hardening/implementing-network-segmentation-and-segregation)
     - [ ] Limit access to them from [monitored jump box / bastion](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-administration/secure-administration) type services
     - [ ] Schedule manual reviews of 'excluded' systems quarterly
-- [ ] Critical external posture alerts and [advisories (from DGov and others)](../advisories.md) should trigger urgent / unplanned patching
+- [ ] Critical external posture alerts and [advisories (from DGov and others)](/advisories/) should trigger urgent / unplanned patching
     - [ ] **internet-facing services:** within two weeks, or within 48 hours if an exploit exists
     - [ ] **workstations, servers, network devices and other network-connected devices:** within one month

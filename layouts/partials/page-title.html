@@ -1,0 +1,13 @@
+{{- $title := .Title -}}
+{{- with findRESubmatch `(?m)^#\s+(.+)$` .RawContent 1 -}}
+  {{- $title = index (index . 0) 1 -}}
+{{- else -}}
+  {{- with findRESubmatch `(?m)^##\s+(.+)$` .RawContent 1 -}}
+    {{- $title = index (index . 0) 1 -}}
+  {{- else -}}
+    {{- with findRESubmatch `(?m)^###\s+(.+)$` .RawContent 1 -}}
+      {{- $title = index (index . 0) 1 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $title -}}

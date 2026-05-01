@@ -23,7 +23,7 @@ These are our recommended resources for building core technical skillsets.
 
 ### 2.1. Cloud Native Fundamentals (4-6 weeks)
 
-**👉 New Team Members Start Here!**
+**👉 New team members: start with Cloud Native Fundamentals.**
 
 The below links will get you across the cloud native methodology to build, test and deliver infrastructure and software. These skills apply to the subsequent infrastructure operation and development guidance sections.
 
@@ -104,7 +104,7 @@ The below frameworks are all focused on having simple, minimal code easy for sma
 - [Streamlit](https://edit.share.stlite.net) in browser python prototypes can be used for fast prototypes in python that compiles to browser.
 - [Hugo](https://gohugo.io/) and [Zola](https://www.getzola.org) are fast simple static site generators.
 - [Astro](https://astro.build) is extensible with Javascript/Typescript.
-- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is extensible with Python/Jinja.
+- [Hugo](https://gohugo.io/) is a fast static site generator with flexible templates and shortcodes.
 
 ## 3. Paid Certifications (2-3 months)
 

@@ -1,0 +1,8 @@
+extends: substitution
+message: "Use '%s' instead of '%s'."
+level: suggestion
+ignorecase: false
+swap:
+  TLP Clear: TLP:CLEAR
+  TLP-CLEAR: TLP:CLEAR
+  "TLP: Clear": TLP:CLEAR

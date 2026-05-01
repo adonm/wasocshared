@@ -1,13 +1,14 @@
 ## Recent Advisories
 
-{{ date_index("docs/advisories", prefix="advisories/", expand=1, include=2) }}
+{{< date_index expand="1" include="2" >}}
 
 ## WASOC - Recent Threat Activity (March 2026)
 
 Based on recent global events, security teams should be focusing on the security controls of their perimeter - [Consider your cyber hygiene in light of global events](https://www.cyber.gov.au/about-us/view-all-content/news/consider-your-cyber-hygiene-light-global-events)
 
-!!! warning "WASOC Guidance targeted on recent escalation of state-based actor threat activity"
+{{% admonition type="warning" title="WASOC Guidance targeted on recent escalation of state-based actor threat activity" open=true %}}
 
+{{% /admonition %}}
 Recent WASOC advisories this month worth staying across include:
 
 - [Nodejs simple-git Critical Vulnerability](https://soc.cyber.wa.gov.au/advisories/20260317002-NodeJs-Simplegit-Critical-Vulnerability/)

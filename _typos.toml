@@ -1,0 +1,52 @@
+[files]
+extend-exclude = [
+  "site/**",
+  ".venv/**",
+  "uv.lock",
+  "utilities/tools/*.json",
+  "docs/onboarding/*.json",
+  "docs/images/**",
+  "docs/pdfs/**",
+  "docs/advisories/**",
+  "docs/markdown-templates/**",
+]
+
+[default.extend-words]
+# Security/product/acronym terms that are valid in this repository.
+AKS = "AKS"
+AMSI = "AMSI"
+ASD = "ASD"
+AuthEnvelopedData = "AuthEnvelopedData"
+BA = "BA"
+CISA = "CISA"
+CVE = "CVE"
+DDoS = "DDoS"
+DGov = "DGov"
+FortiOS = "FortiOS"
+FortiProxy = "FortiProxy"
+FortiSwitchManager = "FortiSwitchManager"
+HPE = "HPE"
+IOC = "IOC"
+IOCs = "IOCs"
+MITRE = "MITRE"
+MSHTML = "MSHTML"
+Qakbot = "Qakbot"
+Quishing = "Quishing"
+SentinelOne = "SentinelOne"
+Signins = "Signins"
+TIBCO = "TIBCO"
+TLP = "TLP"
+WASOC = "WASOC"
+WHILL = "WHILL"
+XDR = "XDR"
+iif = "iif"
+ACI = "ACI"
+CloudSec = "CloudSec"
+MOVEit = "MOVEit"
+OT = "OT"
+Sap = "Sap"
+SME = "SME"
+Splunk = "Splunk"
+runzero = "runzero"
+FPT = "FPT"
+VAS = "VAS"

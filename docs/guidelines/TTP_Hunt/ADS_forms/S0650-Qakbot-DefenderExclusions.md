@@ -20,7 +20,7 @@ https://thedfirreport.com/2022/02/07/qbot-likes-to-move-it-move-it/ <br>
 
 #### ATT&CK TACTICS
 
-{{ mitre("T1562.001")}}
+{{< mitre "T1562.001" >}}
 
 Data Source(s): [Process Creation](https://attack.mitre.org/datasources/DS0009/#Process%20Creation)
 

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [ "$#" -ne 1 ]; then
+  echo "Usage: mise run new-page -- docs/path/page-name.md" >&2
+  exit 2
+fi
+hugo new --kind default "$1"

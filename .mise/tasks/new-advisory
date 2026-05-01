@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+  echo "Usage: mise run new-advisory -- short-title [YYYYMMDDNNN]" >&2
+  exit 2
+fi
+slug=$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-|-$//g')
+uid=${2:-$(date -u +%Y%m%d)001}
+hugo new --kind advisory "advisories/${uid}-${slug}.md"

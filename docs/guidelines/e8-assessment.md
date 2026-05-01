@@ -1,4 +1,4 @@
-﻿# Essential Eight Assessment Process Guide 2022
+# Essential Eight Assessment Process Guide 2022
 **First published:** November 2022
 **Last updated:** August 2023
 
@@ -245,7 +245,7 @@ activities.</td>
 <td>Ask for a demonstration of a method of asset discovery being used in an automated manner to identify assets associated with the system, such as workstations, servers and network devices. This may be a dedicated asset discovery tool or it may be equivalent functionality built into a vulnerability scanner. In addition, request evidence of previous automated asset discovery scans and pay attention to the date/time stamp and their scope.<br>
 Note, while an automated method of asset discovery should be used at least fortnightly, system owners may elect to align the frequency of asset discovery scans to more frequent timeframes used for vulnerability scans (such as daily or weekly) in order to perform both activities at the same time for optimal effect.<br>
 Finally, in addition to identifying assets for follow-on vulnerability scanning activities, automated asset discovery can also be used to identify any unauthorised assets that may have been connected to a system between scheduled scans. If unknown assets are identified as part of asset discovery scans, they should be immediately investigated and treated as suspicious until confirmed otherwise.</td>  
-<tr> 
+<tr>
 <td> A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities.</td>
 <td> Ask for a demonstration of a vulnerability scan. In addition, request evidence of the date/time stamp of when the vulnerability database used for the scan was last updated. Ideally, this should be within 24 hours of the vulnerability scan taking place.</td>
 <tr>
@@ -1181,7 +1181,7 @@ indicating they cannot be changed by users.</td>
 execution events are logged.</td>
 <tr>
 <td>ASD’s E8MVT can assist in determining the implementation of this control.</td>
-<tr> 
+<tr>
 <td>If an application control solution has been suitably configured, it should already
 capture any blocked attempts to execute PowerShell scripts. If not, discuss what other
 logging mechanisms are in place to capture any blocked attempts to execute
@@ -1551,7 +1551,7 @@ the inclusion of drivers. If drivers are included, check whether Microsoft’s
 are validated on an annual
 or more frequent basis.</td>
 <td> Discuss how application control rulesets are validated and with what frequency. In
-addition, discuss the governance processes and procedures around making changings
+addition, discuss the governance processes and procedures around making changes
 to application control rulesets and any testing or reviews that are conducted following
 operating system upgrades and the addition or removal of applications.</td>
 <tr>

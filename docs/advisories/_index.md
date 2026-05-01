@@ -1,4 +1,6 @@
-{{ date_index("docs/advisories", prefix="advisories/") }}
+# Advisories (TLP:CLEAR)
+
+{{< date_index >}}
 
 ### Key Sources
 

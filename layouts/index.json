@@ -1,0 +1,12 @@
+[
+{{- $pages := where site.RegularPages "Params.noSearch" "ne" true -}}
+{{- range $index, $page := $pages }}
+  {{- if $index }},{{ end }}
+  {
+    "title": {{ partial "page-title.html" $page | jsonify }},
+    "url": {{ $page.RelPermalink | jsonify }},
+    "section": {{ $page.Section | humanize | jsonify }},
+    "content": {{ $page.Plain | jsonify }}
+  }
+{{- end }}
+]

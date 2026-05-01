@@ -1,0 +1,6 @@
+{{ define "main" }}
+<article class="content">
+  {{ .Content }}
+  {{ with .File }}<p class="edit-link"><a href="{{ site.Params.editBaseURL }}{{ .Path }}">Edit this page</a></p>{{ end }}
+</article>
+{{ end }}

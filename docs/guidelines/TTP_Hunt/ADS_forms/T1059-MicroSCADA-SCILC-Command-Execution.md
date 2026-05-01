@@ -19,7 +19,7 @@ https://www.mandiant.com/resources/blog/sandworm-disrupts-power-ukraine-operatio
 
 #### ATT&CK TACTICS
 
-{{ mitre("T1059")}}
+{{< mitre "T1059" >}}
 
 Data Source(s):
 [Application Log](https://attack.mitre.org/datasources/DS0015/)

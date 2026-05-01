@@ -21,7 +21,7 @@ https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Attacker%20Tools%2
 
 #### ATT&CK TACTICS
 
-{{mitre("S0357")}}
+{{< mitre "S0357" >}}
 
 Data Source(s): [Process](https://attack.mitre.org/datasources/DS0009/), [Command](https://attack.mitre.org/datasources/DS0017/)
 

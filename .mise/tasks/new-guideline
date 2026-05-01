@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [ "$#" -ne 1 ]; then
+  echo "Usage: mise run new-guideline -- slug" >&2
+  exit 2
+fi
+slug=$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9._-]+/-/g; s/^-|-$//g')
+hugo new --kind guideline "guidelines/${slug}.md"

@@ -1,0 +1,35 @@
+name: External link check
+
+on:
+  schedule:
+    - cron: '21 20 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: external-link-check
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lychee:
+    name: Check external links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Setup mise
+        uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+
+      - name: Install dependencies
+        run: mise run sync
+
+      - name: Build rendered site
+        run: mise run build
+
+      - name: Check links including external HTTP(S)
+        run: lychee --root-dir "$PWD/site" --config .lychee.toml --no-progress 'site/**/*.html'

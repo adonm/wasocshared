@@ -35,14 +35,8 @@ jobs:
       - name: Install dependencies
         run: mise run sync
 
-      - name: Format markdown
-        run: mise run format
-
       - name: Build site
         run: mise run build
-
-      - name: Build RSS feeds
-        run: mise run rss
 
       - name: Setup Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0

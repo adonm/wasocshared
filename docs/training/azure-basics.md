@@ -41,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. In **Disks** section, under **Disk options**, create new *virtual network* as **name-vnet**.
 1. Confirm that *Delete public IP and NIC when VM is deleted* is selected.
 1. In **Management** section, under **Monitoring**, select *disable*.
-1. Click **Review + Create** in the buttom left hand corner, to finalise the creation of the VM. Allow for the validation to complete and click on **create**.
+1. Click **Review + Create** in the button left hand corner, to finalise the creation of the VM. Allow for the validation to complete and click on **create**.
 1. Download the created private key and create resource.
 1. When the deployment is finished, select **Go to resource**.
 1. On the page for your new VM, select the public IP address and copy it to your clipboard.
@@ -69,7 +69,7 @@ ssh -i ~/Downloads/myKey.pem azureuser@<Your Public IP Address>
 
 Docker is an open source containerization platform. It enables developers to package applications into containers—standardized executable components combining application source code with the operating system (OS) libraries and dependencies required to run that code in any environment. Containers simplify delivery of distributed applications, and have become increasingly popular as organizations shift to cloud-native development and hybrid multicloud environments.
 
-Further information reagrding [docker](https://docs.docker.com/get-started/overview/)
+Further information regarding [docker](https://docs.docker.com/get-started/overview/)
 
 ```bash
 sudo apt-get -y update
@@ -81,7 +81,7 @@ sh get-docker.sh
 
 Caddy simplifies your infrastructure. It takes care of TLS certificate renewals, OCSP stapling, static file serving, reverse proxying, Kubernetes ingress, and more.
 
-Further information reagrding [caddy](https://caddyserver.com/docs/)
+Further information regarding [caddy](https://caddyserver.com/docs/)
 
 ```bash
 echo "hello world - My name is <first name>" > index.html
@@ -100,7 +100,7 @@ Basic security hardening is accepatable for testing but is not recommended alone
 #### 3.1.1. Network Security Group (NSG)
 
 1. Whitelist/Allow IP
-    > Make a note of the IP address you are currently utilsing
+    > Make a note of the IP address you are currently utilising
     1. In the VM portal, select **networking** in the *setting* blade.
     1. Select **Inbound port rules**, select the **SSH** rule to edit the rule setting.
     1. Change **source** from *Any* to *IP Addresses*.
@@ -139,10 +139,10 @@ Basic security hardening is accepatable for testing but is not recommended alone
         - **WAF Policy**: Select **Create new**, type a name for the new policy *name_waf_policy*, tick **Add bot Portection** and then select **OK**.
             This creates a basic WAF policy with a managed Core Rule Set (CRS).
     1. For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
-        - Under **Configure virtual network**, select the the exisitng VM vnet *name-vnet*:
+        - Under **Configure virtual network**, select the the existing VM vnet *name-vnet*:
         - **Subnet name** (Create Application Gateway subnet for VM): Click **Manage Subnet Configuration**. <br>The application gateway subnet can contain only application gateways. No other resources are allowed.
         - In VM **subnets**, click **+ Subnets**.
-        - In *Add Subnet*, add a name \*anme_WAF to the new subnet. Use the Default **Subnet address Range** and Click **save**
+        - In *Add Subnet*, add a name \*name_WAF to the new subnet. Use the Default **Subnet address Range** and Click **save**
         - Back in **Create application Gateway** pane, select newly create *subnet*.
             > Image TODO
     1. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
@@ -292,7 +292,7 @@ Deploy the firewall into the VNet.
     | Setting        | Value                               |
     | -------------- | ----------------------------------- |
     | Subscription   | Select your subscription.           |
-    | Resource group | Enter exisitng **MyResourceGroup**. |
+    | Resource group | Enter existing **MyResourceGroup**. |
     | Name           | Enter **MyDdosProtectionPlan**.     |
     | Region         | Enter **Australia East**.           |
 

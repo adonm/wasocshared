@@ -16,20 +16,21 @@ All agencies should have a **Cyber Incident Response Plan** ([ACSC Practitioner 
 
 ACSC also published an excellent [ACSC Cyber Incident Response Plan - Word Template - March 2023 (docx)](https://www.cyber.gov.au/sites/default/files/2023-03/ACSC-Cyber-Incident-Response-Plan-Template.docx) suitable for tailoring to an organisations specific context. The guidance includes some highly relevant appendices:
 
-!!! abstract "Incident Response Appendices"
+{{% admonition type="abstract" title="Incident Response Appendices" open=true %}}
 
-    - Appendix A - Terminology and definitions
-    - Appendix B - Cyber Security Incident Response Readiness Checklist
-    - Appendix C - ASD cyber security incident triage questions
-    - Appendix D - Situation Report Template
-    - Appendix E - Cyber Security Incident Log Template
-    - Appendix F - Evidence Register Template
-    - Appendix G - Remediation Action Plan Template
-    - Appendix H - Post cyber security incident reviews
-    - Appendix I - Action Register Template
-    - Appendix J - Role cards
-    - Appendix K - ASD Cyber Security Incident Categorisation Matrix
+- Appendix A - Terminology and definitions
+- Appendix B - Cyber Security Incident Response Readiness Checklist
+- Appendix C - ASD cyber security incident triage questions
+- Appendix D - Situation Report Template
+- Appendix E - Cyber Security Incident Log Template
+- Appendix F - Evidence Register Template
+- Appendix G - Remediation Action Plan Template
+- Appendix H - Post cyber security incident reviews
+- Appendix I - Action Register Template
+- Appendix J - Role cards
+- Appendix K - ASD Cyber Security Incident Categorisation Matrix
 
+{{% /admonition %}}
 ### 1.2 ACSC Incident Categorisation Matrix
 
 <img width="700" alt="ACSC Incident Categorisation Matrix 2022" src="https://www.cyber.gov.au/sites/default/files/2024-04/Cyber%20Security%20Incident%20Response%20Planning%20Image%204.png">

@@ -6,14 +6,15 @@ The below are all from [ACSC Strategies to Mitigate Cyber Security Incidents –
 
 The Further Five below have been included in the 2024 [WA Government Cyber Security Policy](https://www.wa.gov.au/government/publications/wa-government-cyber-security-policy).
 
-!!! note "Further Five"
+{{% admonition type="note" title="Further Five" open=true %}}
 
-    - [Server application hardening](#server-application-hardening) especially internet-accessible web applications (sanitise input and use TLS not SSL) and databases, as well as applications that access important (sensitive/high-availability) data.
-    - [Block spoofed emails](#block-spoofed-emails). Use Sender Policy Framework (SPF) or Sender ID to check incoming emails. Use ‘hard fail’ SPF TXT and DMARC DNS records to mitigate emails that spoof the organisation’s domain.
-    - [Network segmentation](#network-segmentation). Deny traffic between computers unless required. Constrain devices with low assurance (e.g. BYOD and IoT). Restrict access to network drives and data repositories based on user duties.
-    - [Continuous incident detection and response](#continuous-incident-detection-and-response) with automated immediate analysis of centralised time-synchronised logs of allowed and denied computer events, authentication, file access and network activity.
-    - [Personnel management](#personnel-management) e.g. ongoing vetting especially for users with privileged access, immediately disable all accounts of departing users, and remind users of their security obligations and penalties.
+- [Server application hardening](#server-application-hardening) especially internet-accessible web applications (sanitise input and use TLS not SSL) and databases, as well as applications that access important (sensitive/high-availability) data.
+- [Block spoofed emails](#block-spoofed-emails). Use Sender Policy Framework (SPF) or Sender ID to check incoming emails. Use ‘hard fail’ SPF TXT and DMARC DNS records to mitigate emails that spoof the organisation’s domain.
+- [Network segmentation](#network-segmentation). Deny traffic between computers unless required. Constrain devices with low assurance (e.g. BYOD and IoT). Restrict access to network drives and data repositories based on user duties.
+- [Continuous incident detection and response](#continuous-incident-detection-and-response) with automated immediate analysis of centralised time-synchronised logs of allowed and denied computer events, authentication, file access and network activity.
+- [Personnel management](#personnel-management) e.g. ongoing vetting especially for users with privileged access, immediately disable all accounts of departing users, and remind users of their security obligations and penalties.
 
+{{% /admonition %}}
 ### Server application hardening
 
 Server application hardening especially internet-accessible web applications (sanitise input and use TLS not SSL) and databases, as well as other server applications that access important (sensitive or high-availability) data (e.g. customer, finance, human resources and other data storage systems).
@@ -24,14 +25,15 @@ Server application hardening helps the organisation to conduct its business with
 
 OWASP guidance helps to mitigate web application security vulnerabilities such as SQL injection, and covers code review, data validation and sanitisation, user and session management, protection of data in transit and storage, error handling, user authentication, logging and auditing.
 
-!!! info
+{{% admonition type="info" title="Info" open=true %}}
 
-    Further guidance on server application hardening are available below.
+Further guidance on server application hardening are available below.
 
-    - Further guidance on system hardening is available in the *[Guidelines for System Hardening](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-system-hardening "Guidelines for System Hardening")* publication.
-    - Further guidance on protecting web applications and users is available in the *[Protecting Web Application and Users](https://www.cyber.gov.au/sites/default/files/2023-03/PROTECT%20-%20Protecting%20Web%20Applications%20and%20Users%20%28October%202021%29.pdf "Protecting Web Applications and Users")* publication.
-    - Further guidance on secure software development is available in the *[Guidelines for Software Development](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-software-development)* publication.
+- Further guidance on system hardening is available in the *[Guidelines for System Hardening](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-system-hardening "Guidelines for System Hardening")* publication.
+- Further guidance on protecting web applications and users is available in the *[Protecting Web Application and Users](https://www.cyber.gov.au/sites/default/files/2023-03/PROTECT%20-%20Protecting%20Web%20Applications%20and%20Users%20%28October%202021%29.pdf "Protecting Web Applications and Users")* publication.
+- Further guidance on secure software development is available in the *[Guidelines for Software Development](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-software-development)* publication.
 
+{{% /admonition %}}
 ### Block spoofed emails
 
 Block spoofed emails. Use Sender Policy Framework (SPF) or Sender ID to check incoming emails. Use 'hard fail' SPF TXT and DMARC DNS records to mitigate emails that spoof the organisation's domain.
@@ -52,10 +54,11 @@ Organisations can conservatively deploy DMARC if they are concerned about legiti
 
 Reject incoming emails that have the organisation's domain as the email sender but do not originate from email servers approved by the organisation.
 
-!!! info
+{{% admonition type="info" title="Info" open=true %}}
 
-    Further guidance on spoofed email mitigation strategies is available in the *[How to Combat Fake Emails](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/email-hardening/how-combat-fake-emails "How to Combat Fake Emails")* publication.
+Further guidance on spoofed email mitigation strategies is available in the *[How to Combat Fake Emails](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/email-hardening/how-combat-fake-emails "How to Combat Fake Emails")* publication.
 
+{{% /admonition %}}
 ### Network segmentation
 
 Network segmentation. Deny traffic between computers unless required. Constrain devices with low assurance (e.g. 'Bring Your Own Device' (BYOD) and 'Internet of Things' (IoT)). Restrict user access to network drives and data repositories based on user duties.
@@ -84,12 +87,13 @@ Organisations with critically important data might choose to store and access it
 
 Adversaries could propagate throughout the network by leveraging the organisation's existing systems used to distribute software such as patches for security vulnerabilities, login programs or scheduled tasks configured via Group Policy Objects, updated anti-malware detection engine software, or the computer Standard Operating Environment master image. Alternatively, adversaries could turn the organisation's intranet website into a watering hole to compromise users when they visit. Therefore, protect software distribution systems from modifications which are malicious or otherwise unauthorised, combined with implementing a robust change management process.
 
-!!! info
+{{% admonition type="info" title="Info" open=true %}}
 
-    Further guidance on network segmentation is available in the *[Implementing Network Segmentation and Segregation](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/network-hardening/implementing-network-segmentation-and-segregation "Implementing Network Segmentation and Segregation")* publication.
+Further guidance on network segmentation is available in the *[Implementing Network Segmentation and Segregation](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/network-hardening/implementing-network-segmentation-and-segregation "Implementing Network Segmentation and Segregation")* publication.
 
-    Information about BYOD and other enterprise mobility solutions is available in the *[Bring Your Own Device for Executives](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/bring-your-own-device-executives "Bring Your Own Device for Executives")* and *[Risk Management of Enterprise Mobility Including Bring Your Own Device](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/risk-management-enterprise-mobility-including-bring-your-own-device "Risk Management of Enterprise Mobility Including Bring Your Own Device")* publications.
+Information about BYOD and other enterprise mobility solutions is available in the *[Bring Your Own Device for Executives](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/bring-your-own-device-executives "Bring Your Own Device for Executives")* and *[Risk Management of Enterprise Mobility Including Bring Your Own Device](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/risk-management-enterprise-mobility-including-bring-your-own-device "Risk Management of Enterprise Mobility Including Bring Your Own Device")* publications.
 
+{{% /admonition %}}
 ### Continuous incident detection and response
 
 Continuous incident detection and response with automated immediate analysis of centralised time-synchronised logs of allowed and denied computer events, authentication, file access and network activity.
@@ -203,6 +207,7 @@ Organisational executives and management can reduce some motivations for employe
 
 For the relatively small number of organisations where employees have access to highly classified data or other extremely sensitive data, a psychological assessment should be performed by qualified personnel to explore topics including allegiances and beliefs as well as character weaknesses which could be leveraged and manipulated by adversaries. Employees should be encouraged to advise the personnel security team of unusual behaviour exhibited by other employees as well as their own significant life changes such as financial, relationship and health problems.
 
-!!! info
+{{% admonition type="info" title="Info" open=true %}}
 
-    Further information can be found within ACSC’s publication [Guidelines for Personnel Security | Cyber.gov.au](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-personnel-security).
+Further information can be found within ACSC’s publication [Guidelines for Personnel Security | Cyber.gov.au](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-personnel-security).
+{{% /admonition %}}

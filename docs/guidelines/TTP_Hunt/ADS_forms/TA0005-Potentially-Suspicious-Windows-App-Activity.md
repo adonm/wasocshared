@@ -21,9 +21,9 @@ https://github.com/SigmaHQ/sigma/blob/6b8cd1f0f1d222dcffa95394b4cbcec2a05137a0/r
 
 #### ATT&CK TACTICS
 
-{{ mitre("T1059")}} <br>
-{{ mitre("T1218.005")}} <br>
-{{ mitre("T1047")}} <br>
+{{< mitre "T1059" >}} <br>
+{{< mitre "T1218.005" >}} <br>
+{{< mitre "T1047" >}} <br>
 
 Data Source(s): [Command](https://attack.mitre.org/datasources/DS0017/), [Process](https://attack.mitre.org/datasources/DS0009/)
 

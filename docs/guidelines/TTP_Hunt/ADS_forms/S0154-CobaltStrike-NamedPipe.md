@@ -25,7 +25,7 @@ https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/Microsoft%
 
 #### ATT&CK TACTICS
 
-{{mitre("S0154")}}
+{{< mitre "S0154" >}}
 
 Data Source(s): [Named Pipe](https://attack.mitre.org/datasources/DS0023)
 

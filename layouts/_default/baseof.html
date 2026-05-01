@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en-AU" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ef5e2a">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ partial "page-title.html" . }} | {{ site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="{{ "stylesheets/site.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "stylesheets/extra.css" | relURL }}">
+  <link rel="alternate" type="application/rss+xml" title="WA SOC RSS" href="{{ "rss.xml" | relURL }}">
+  <link rel="alternate" type="application/atom+xml" title="WA SOC Atom" href="{{ "atom.xml" | relURL }}">
+  <script defer src="{{ "javascripts/search.js" | relURL }}"></script>
+</head>
+<body>
+  <input class="nav-toggle" id="nav-toggle" type="checkbox" aria-label="Toggle navigation">
+  <header class="site-header">
+    <label class="nav-toggle-button" for="nav-toggle" aria-hidden="true">☰</label>
+    <a class="site-title" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+    <div class="site-search" role="search">
+      <label class="visually-hidden" for="site-search-input">Search this site</label>
+      <input id="site-search-input" class="search-input" type="search" placeholder="Search" autocomplete="off">
+      <div id="site-search-results" class="search-results" aria-live="polite"></div>
+    </div>
+    <a class="header-link" href="{{ "rss.xml" | relURL }}">RSS</a>
+  </header>
+  <div class="page-shell">
+    <aside class="sidebar">{{ partial "sidebar.html" . }}</aside>
+    <main class="site-main" id="main-content">{{ block "main" . }}{{ end }}</main>
+    <aside class="toc-sidebar">{{ partial "toc.html" . }}</aside>
+  </div>
+  <footer class="site-footer">
+    <strong>Acknowledgement of Country</strong><br>
+    The Government of Western Australia acknowledges the traditional custodians throughout Western Australia and their continuing connection to the land, waters and community. We pay our respects to all members of the Aboriginal communities and their cultures; and to Elders both past and present.<br>
+    <small>© Government of Western Australia</small>
+  </footer>
+</body>
+</html>

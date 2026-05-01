@@ -28,7 +28,7 @@ https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-144a
 
 #### ATT&CK TACTICS
 
-{{ mitre("T1555")}}
+{{< mitre "T1555" >}}
 
 Data Source(s): [Command](https://attack.mitre.org/datasources/DS001/)
 

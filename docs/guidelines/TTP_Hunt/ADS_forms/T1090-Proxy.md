@@ -19,7 +19,7 @@ https://www.cyber.gov.au/about-us/advisories/prc-state-sponsored-cyber-actor-liv
 
 #### ATT&CK TACTICS
 
-{{ mitre("T1090")}}
+{{< mitre "T1090" >}}
 
 Data Source(s): [Process](https://attack.mitre.org/datasources/DS0009/), [Command](https://attack.mitre.org/datasources/DS0017/)
 

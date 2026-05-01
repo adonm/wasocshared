@@ -1,0 +1,104 @@
+baseURL = "https://soc.cyber.wa.gov.au/"
+title = "WA Cyber Security Unit (DGOV Technical)"
+locale = "en-AU"
+contentDir = "docs"
+publishDir = "site"
+enableGitInfo = true
+disablePathToLower = true
+enableRobotsTXT = true
+summaryLength = 30
+ignoreFiles = ["(^|/)markdown-templates/"]
+
+[mediaTypes."application/atom+xml"]
+suffixes = ["xml"]
+
+[outputFormats.RSS]
+mediaType = "application/rss+xml"
+baseName = "rss"
+isPlainText = false
+
+[outputFormats.ATOM]
+mediaType = "application/atom+xml"
+baseName = "atom"
+isPlainText = false
+
+[outputFormats.EMAIL]
+mediaType = "text/html"
+baseName = "email"
+isPlainText = false
+notAlternative = true
+
+[outputs]
+home = ["HTML", "JSON", "RSS", "ATOM"]
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+[markup.highlight]
+anchorLineNos = true
+codeFences = true
+guessSyntax = true
+noClasses = false
+
+[module]
+[[module.mounts]]
+source = "docs"
+target = "content"
+[[module.mounts]]
+source = "docs/images"
+target = "static/images"
+[[module.mounts]]
+source = "docs/pdfs"
+target = "static/pdfs"
+[[module.mounts]]
+source = "docs/stylesheets"
+target = "static/stylesheets"
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+[[module.mounts]]
+source = "static"
+target = "static"
+
+[params]
+repoURL = "https://github.com/wagov/wasocshared"
+editBaseURL = "https://github.com/wagov/wasocshared/blob/main/docs/"
+contactEmail = "cybersecurity@dpc.wa.gov.au"
+
+[[menus.main]]
+name = "Home"
+pageRef = "/"
+weight = 10
+[[menus.main]]
+name = "Connecting to the WASOC"
+pageRef = "/onboarding"
+weight = 20
+[[menus.main]]
+name = "Advisories (TLP:CLEAR)"
+pageRef = "/advisories"
+weight = 30
+[[menus.main]]
+name = "ACSC Strategies to Mitigate"
+pageRef = "/guidelines/further-five"
+weight = 40
+[[menus.main]]
+name = "Threat Hunting (TTPs)"
+pageRef = "/guidelines/TTP_Hunt/ttp-detection-guidelines"
+weight = 50
+[[menus.main]]
+name = "Baselines"
+pageRef = "/baselines/data-sources"
+weight = 60
+[[menus.main]]
+name = "Guidelines"
+pageRef = "/guidelines/incident-reporting"
+weight = 70
+[[menus.main]]
+name = "Training"
+pageRef = "/training/analyst-induction"
+weight = 80
+[[menus.main]]
+name = "Incident Reporting Portal"
+url = "https://irp.dpc.wa.gov.au"
+weight = 90

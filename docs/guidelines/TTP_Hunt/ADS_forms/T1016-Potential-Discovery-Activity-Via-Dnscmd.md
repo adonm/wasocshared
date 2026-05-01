@@ -24,7 +24,7 @@ Discovery
 
 #### ATT&CK TACTICS
 
-{{ mitre("T1016")}}
+{{< mitre "T1016" >}}
 
 Data Source(s): [Command](https://attack.mitre.org/datasources/DS0017), [Process](https://attack.mitre.org/datasources/DS0009/)
 
